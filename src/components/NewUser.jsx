@@ -72,11 +72,11 @@ function NewUser({ fetchUsers, initialUser, onEdit }) {
     try {
       if (initialUser) {
         // Handle edit if an initialUser is provided
-        await axios.put(`http://localhost:3001/user/${initialUser.id}`, userData);
+        await axios.put(`https://jsonplaceholder.typicode.com/users/${initialUser.id}`, userData);
         onEdit(null); // Clear the edit mode
       } else {
         // Handle add if no initialUser is provided
-        await axios.post('http://localhost:3001/user/', userData);
+        await axios.post('https://jsonplaceholder.typicode.com/users/', userData);
       }
       fetchUsers(); // Fetch users again to reflect the changes
       setUserData({

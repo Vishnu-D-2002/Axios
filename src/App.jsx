@@ -11,7 +11,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/user/");
+      const response = await axios.get("https://jsonplaceholder.typicode.com/users");
       setUsers(response.data);
     } catch (error) {
       console.log('Error in fetching data:', error);
@@ -20,7 +20,7 @@ function App() {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:3001/user/${userId}`);
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${userId}`);
       fetchUsers();
     } catch (error) {
       console.error('Error deleting user', error);
@@ -29,7 +29,7 @@ function App() {
 
   const updateUser = async (updatedUser) => {
     try {
-      await axios.put(`http://localhost:3001/user/${updatedUser.id}`, updatedUser);
+      await axios.put(`https://jsonplaceholder.typicode.com/users/${updatedUser.id}`, updatedUser);
       fetchUsers();
     } catch (error) {
       console.error('Error updating user', error);
